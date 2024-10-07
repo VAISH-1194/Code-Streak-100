@@ -1,4 +1,4 @@
-##QUESTION:
+QUESTION:
 
 An elephant decided to visit his friend. It turned out that the elephant's house is located at point 0 and his friend's 
 house is located at point x(x > 0) of the coordinate line. In one step the elephant can move 1, 2, 3, 4 or 5 
@@ -16,9 +16,9 @@ InputCopy
 OutputCopy
 1
 
-##ANSWER:
+ANSWER:
 
-##Method 1
+Method 1
 
 #include <iostream>
 using namespace std;
@@ -40,7 +40,7 @@ int main() {
 
 
 
-##Alias Method
+Alias Method
 
 #include <iostream>
 using namespace std;
@@ -53,7 +53,7 @@ int main() {
 }
 
 
-##Calculation for alias method
+Calculation for alias method
 
 11 -> 3
 11 + 4 = 15 / 5 => 3
