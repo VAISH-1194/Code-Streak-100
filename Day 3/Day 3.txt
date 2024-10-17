@@ -1,0 +1,192 @@
+Day 3
+1)Reverse an array
+i)print
+ii)Arrange an array
+ans:
+i)//Reverse an array,print
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int a[]=new int[n+1];
+      for(int i=0;i<n;i++)
+      {
+        a[i]=sc.nextInt();
+      }
+      for(int i=n-1;i>=0;i--)
+      {
+        System.out.print(a[i]+" ");
+      }
+  }
+}
+
+ii)//Reverse an array,arrage withinn the array
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int a[]=new int[n+1];
+      for(int i=0;i<n;i++)
+      {
+        a[i]=sc.nextInt();
+      }
+      for(int i=0,j=n-1;i<n/2;i++,j--)
+      {
+          a[i]=a[i]+a[j]-(a[j]=a[i]);
+        
+      }
+      for(int i=0;i<n;i++)
+      {
+        System.out.print(a[i]+" ");
+      }
+  }
+}
+
+2)427a codeforce-- police recruits
+input:
+8
+1 -1 1 -1 -1 1 1 1
+output:
+1
+
+ans:
+//Reverse an array,arrage withinn the array
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int a[]=new int[n];
+      for(int i=0;i<n;i++)
+      {
+        a[i]=sc.nextInt();
+      }
+      int availpolice=0;
+      int untreated=0;
+      for(int i:a){
+        if(i>0)
+          availpolice+=i;
+        else{
+          if(availpolice>0)
+            availpolice--;
+          else{
+            untreated++;
+          }
+        }
+      }
+      System.out.print(untreated);
+  }
+}
+
+*********************(or)*********************
+//Reverse an array,arrage withinn the array
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int availpolice=0;
+      int untreated=0;
+      while(n--!=0)
+      {
+        int i=sc.nextInt();
+        if(i>0)
+          availpolice+=i;
+        else{
+          if(availpolice>0)
+            availpolice--;
+          else{
+            untreated++;
+          }
+        }
+      }
+      System.out.print(untreated);
+  }
+}
+***********************leetcode 5************************
+Input: nums = [1]
+Output: 1
+Explanation: The subarray [1] has the largest sum 1.
+
++)can use sliding window approach;
+
+
+normal problem:a theif sum
+max stolen value,not in adjacent house;
+
+leetcode 121.best time to buy and sell************
+
+5)find the unpaired element in the given list:
+Input: 1 2 2 3 1 4 4 5 5
+output:3
+tc:O(n)
+ans:
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+     Scanner sc=new Scanner(System.in);
+      int a[]=Arrays.stream(sc.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+      int res=0;
+      for(int ele:a)
+      {
+        res ^=ele;
+      }
+      System.out.print(res);
+  }
+}
+
+
+6)unpaired element:
+tc O(n)
+sc-O(1)
+
+ans:
+
+
+7)majority elements 169-leetcode
+input:3 2 3 
+output:3
+
+ans:
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+     Scanner sc=new Scanner(System.in);
+      int a[]=Arrays.stream(sc.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        int count = 0;
+       int candidate = a[0];
+
+        for (int num : a) {
+            if (count == 0) {
+                candidate = num;
+            }
+            count += (candidate== num) ? 1 : -1;
+        }
+        System.out.print(candidate);
+  }
+}
+
+
+73)leetcide-set matrix zeroes:
+input:1 1 1
+1 0 1
+1 1 1 
+output:
+1 0 1 
+0 0 0
+1 0 1
+ans:
+
+
+questions)
+1)Subarray
+2)Subsequence
