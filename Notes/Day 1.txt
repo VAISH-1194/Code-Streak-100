@@ -1,0 +1,407 @@
+Dayyyy1
+swapping two int;////
+#include <iostream>
+using namespace std;
+
+void swapIt(int *ptr1,int *ptr2)
+{
+  int t=*ptr1;
+  *ptr1=*ptr2;
+  *ptr2=t;
+  
+}
+int main() 
+{
+    int a=10;
+    int b=20;
+    
+   swapIt(&a,&b);
+    cout<<a<<" "<<b;
+}
+
+Example for call by value,refernce*************************************************
+#include <iostream>
+using namespace std;
+
+int square1(int n)
+{
+  cout<<"call by value"<<endl;
+  n*=n;
+  return n;
+}
+void square2(int *n)
+{
+ cout<<"call by reference using pointer"<<"\n";
+ *n *=*n;
+}
+void square2(int &n)
+{
+ cout<<"call by reference argument"<<"\n";
+ n *=n;
+}
+
+int main() 
+{
+    int a=10;
+    cout<<square1(a);
+    cout<<"\n";
+    
+    int b=20;
+    square2(&b);
+    cout<<b;
+    cout<<"\n";
+    
+    int c=30;
+    square2(c);
+    cout<<c;
+    
+}
+
+3)write a program that compares two pointers and determines their relationship
+
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+  int a=20;
+  int b=10;
+  int *ptra=&a;
+  int *ptrb=&b;
+  
+  if(ptra<ptrb)
+  {
+    cout<<"a address is smaller ";
+  }
+  else if(ptra> ptrb)
+  {
+    cout<<"b address is smaller ";
+  }
+  else
+  {
+    cout<<"equal";
+  }
+  
+    
+    
+}
+
+Elephant -6178 codeforces*******************************
+4)An elephant decided to visit his friend. It turned out that the elephant's house is located at point 0 and his friend's house is located at point x(x > 0) of the coordinate line. In one step the elephant can move 1, 2, 3, 4 or 5 positions forward. Determine, what is the minimum number of steps he need to make in order to get to his friend's house.
+
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+  int n;
+  cin>>n;
+  cout<<(n+4)/5;
+}
+
+Presents-136A**********************************************
+5)Little Petya very much likes gifts. Recently he has received a new laptop as a New Year gift from his mother. He immediately decided to give it to somebody else as what can be more pleasant than giving somebody gifts. And on this occasion he organized a New Year party at his place and invited n his friends there.
+
+If there's one thing Petya likes more that receiving gifts, that's watching others giving gifts to somebody else. Thus, he safely hid the laptop until the next New Year and made up his mind to watch his friends exchanging gifts while he does not participate in the process. He numbered all his friends with integers from 1 to n. Petya remembered that a friend number i gave a gift to a friend number pi. He also remembered that each of his friends received exactly one gift.
+
+Now Petya wants to know for each friend i the number of a friend who has given him a gift.
+
+INput:
+4
+2 3 4 1
+Output:
+4 1 2 3
+
+ANS:
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+  int n;
+  cin>>n;
+  int a[n+1];
+  int temp;
+  for(int i=1;i<=n;i++)
+  {
+    cin>>temp;
+    a[temp]=i;
+  }
+  
+  for(int i=1;i<=n;i++)
+  {
+    cout<<a[i]<<" ";
+  }
+  
+}
+
+6)The police department of your city has just started its journey. Initially, they don’t have any manpower. So, they started hiring new recruits in groups.
+
+Meanwhile, crimes keeps occurring within the city. One member of the police force can investigate only one crime during his/her lifetime.
+
+If there is no police officer free (isn't busy with crime) during the occurrence of a crime, it will go untreated.
+
+Given the chronological order of crime occurrences and recruit hirings, find the number of crimes which will go untreated.
+Input:
+3
+-1 -1 -1
+OUTPUT:
+2
+
+Ans:
+
+
+7)finding max number
+ans:
+#include <iostream>
+using namespace std;
+int findMax(int *a,int n)
+{
+  int max=*a;
+  for(int i=1;i<n;i++)
+  {
+    if(max<*(a+i))
+    {
+      max=*(a+i);
+    }
+  }
+    return max;
+}
+
+int main() 
+{
+  int n;
+  cin>>n;
+  int a[n];
+  for(int i=0;i<n;i++)
+  {
+    cin>>a[i];
+  }
+  cout<<"Max: "<<findMax(a,n);
+  
+}
+
+
+8)reversing an array using pointers
+ans:
+#include <iostream>
+using namespace std;
+int reve(int *a,int n)
+{
+  int *start_index=a;
+  int *end_index=a+n-1;
+  while(start_index<end_index)
+  {
+    swap(*start_index,*end_index);
+    start_index++;
+    end_index--;
+  }
+}
+
+int main() 
+{
+  int n;
+  cin>>n;
+  int a[n];
+  for(int i=0;i<n;i++)
+  {
+    cin>>a[i];
+  }
+  reve(a,n);
+  for(int i=0;i<n;i++)
+  {
+    cout<<a[i]<<" ";
+  }
+}
+
+9)
+Finding the sum of eements in an array using pointers
+ans:
+#include <iostream>
+using namespace std;
+int sumarr(int *a,int n)
+{
+  int sum=0;
+  for(int i=0;i<n;i++)
+  {
+    sum+=*(a+i);
+  }
+  return sum;
+}
+
+int main() 
+{
+  int n;
+  cin>>n;
+  int a[n];
+  for(int i=0;i<n;i++)
+  {
+    cin>>a[i];
+  }
+  
+ cout<<sumarr(a,n);
+}
+10)
+//length of the string:
+
+#include <iostream>
+using namespace std;
+
+int lenstr(char *str)
+{
+  int length=0;
+  while(*(str++))
+  {
+    length++;
+  }
+  return length;
+}
+int main() 
+{
+  
+  char s[]="hiiii";
+  cout<<lenstr(s);
+}
+
+11)
+//copying string using pointers:
+
+#include <iostream>
+using namespace std;
+
+void copystr(char *src,char *des)
+{
+  while(*des++=*src++);
+}
+int main() 
+{
+  
+  char s[]="hiiii",c[5];
+  copystr(s,c);
+  cout<<c;
+}
+
+266/B(Queue at the School) codeforces:**********************************
+input:
+5 1
+BGGBG
+output:
+GBGGB
+ans:
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+  
+ int n=5;
+ int t=1;
+// cin>>n>>t;
+ char s[]="BGGBG";
+ while(t--)
+ {
+   for(int i=1;i<n;i++)
+     if(s[i-1]=='B' && s[i]=='G')
+     {
+       s[i-1]='G';
+       s[i]='B';
+       i++;
+     }
+ }
+ cout<<s;
+}
+
+11)
+//sorting an array using pointers
+
+#include <iostream>
+using namespace std;
+
+void sortB(int *a,int n)
+{
+  for(int i=0;i<n-1;i++)
+  {
+    for(int j=0;j<n-i-1;j++)
+    {
+     if(*(a+j) > *(a+j+1))
+     swap(*(a+j),*(a+j+1));
+    }
+    
+  }
+}
+int main() 
+{
+  int n;
+  cin>>n;
+  int a[n];
+  for(int i=0;i<n;i++)
+  {
+    cin>>a[i];
+  }
+  sortB(a,n);
+  
+  for(int i=0;i<n;i++)
+  {
+    cout<<a[i]<<" ";
+  }
+}
+
+
+12)//Merging two sorted arrays
+
+ANS:
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void merge(int* arr1, int n1, int* arr2, int n2, int* arr3)
+{
+    int i = 0, j = 0, k = 0;
+
+    while (i < n1) {
+        arr3[k++] = arr1[i++];
+    }
+
+    while (j < n2) {
+        arr3[k++] = arr2[j++];
+    }
+
+    sort(arr3, arr3 + n1 + n2);
+}
+
+int main() {
+    int n1, n2;
+    
+    cin >> n1;
+    int* arr1 = new int[n1];
+    
+    for (int i = 0; i < n1; i++) {
+        cin >> arr1[i];
+    }
+
+    cin >> n2;
+    int* arr2 = new int[n2];
+
+    for (int i = 0; i < n2; i++) {
+        cin >> arr2[i];
+    }
+
+    int* arr3 = new int[n1 + n2];
+
+    merge(arr1, n1, arr2, n2, arr3);
+
+    cout << "Merged and sorted array: ";
+    for (int i = 0; i < n1 + n2; i++)
+        cout << arr3[i] << " ";
+
+    delete[] arr1;
+    delete[] arr2;
+    delete[] arr3;
+
+    return 0;
+}
+
+Questions:
+
+1)Diff - call by value,call by reference
+
