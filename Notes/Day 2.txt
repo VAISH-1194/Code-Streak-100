@@ -1,0 +1,225 @@
+Dayyyy 2
+
+
+INC+++,DEC+++
+
+ex1****************************************************
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      int a=10,b=10;
+      int c=a++;
+      int d=++b;
+      System.out.println(a);
+      System.out.println(b);
+      System.out.println(c);
+      System.out.println(d);
+  }
+}
+OUTPUT:
+11
+11
+10
+11
+
+ex2)/*********************************
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      int a=10,b=5;
+      int res=b++ + a*a++ +5;
+      System.out.println(res);
+  }
+}
+output:110
+
+ex3****************************
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      int a=5;
+      int x=a+a++-5;
+      System.out.println(x);
+  }
+}
+output:5
+
+ex5) pure zero right shift 
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+      System.out.println(-15>>3);
+      System.out.println(-15>>>3);
+  }
+}
+output:
+-2
+536870910
+
+
+1)check if a number is even or odd*******************
+2)Find the largest number******************
+3)Watermelon-4A codeforces***********************************
+import java.util.*;
+public class Main {
+  public static void main(String[] args) {
+  Scanner sc=new Scanner(System.in);
+   int n1=sc.nextInt();
+   if(n1<=2 || n1%2==0)
+   {
+     System.out.print("NO");
+   }
+   else{
+     System.out.print("YES");
+   }
+  }
+}
+
+4)Nearly Lucky Number-110A codeforces
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int number = sc.nextInt();
+        boolean onlyFourAndSeven = true;
+        
+        while (number > 0) {
+            int digit = number % 10; 
+            
+            if (digit != 4 && digit != 7) {
+                onlyFourAndSeven = false;
+                break; 
+            }
+            
+            number /= 10; 
+        }
+        
+        if (onlyFourAndSeven) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
+
+5)Bit++ ***************282A codeforces
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int X=0;
+        while(n--!=0)
+        {
+          String s=sc.next();
+          switch(s){
+            case "++X":++X;break;
+            case "--X":--X;break;
+            case "X++":X++;break;
+            case "X--":X--;break;
+          }
+          
+        }
+        System.out.print(X);
+    }
+}
+input:
+2
+X++
+--X
+
+output:0
+
+1))print 1 to N
+import java.util.Scanner;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        for(int i=1;i<=n;i++)
+        {
+          System.out.print(i+" ");
+        }
+    }
+}
+ 
+2))factorial of a number
+import java.util.Scanner;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        // for(int i=1;i<=n;i++)
+        // {
+        //   System.out.print(i+" ");
+        // }
+        int f=1;
+        if(n==0 || n==1)
+        {
+          System.out.print("1");
+        }
+        else{
+          
+        for(int i=1;i<=n;i++)
+        {
+          f*=i;
+        }
+        System.out.print(f);
+        }
+    }
+}
+
+3)find the sum of first n square natural numbers
+import java.util.Scanner;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int sum=0;
+        for(int i=1;i<=n;i++)
+        {
+          sum+=(i*i);
+        }
+        System.out.print(sum);
+    }
+}
+
+screenshot prime:
+import java.util.Scanner;
+import java.util.*;
+public class Main {
+    public static boolean isPrime(int num)
+    {
+      if(num<2)return false;
+      for(int i=2;i<=Math.sqrt(num);i++)
+      if(num%i==0)
+      return false;
+      return true;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int sum=2,count=0;
+        for(int i=3;sum<n;i++)
+        {
+          if(isPrime(i)){
+            sum+=i;
+          if(isPrime(sum))
+            count++;
+          }
+        }
+        System.out.println(count);
+    }
+}
