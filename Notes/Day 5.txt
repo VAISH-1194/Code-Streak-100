@@ -1,0 +1,204 @@
+Dayyyyyy 5
+TOPICS: functions & Recursion
+
+Recursion:
+import java.util.*;
+
+public class Main {
+  public static void hello(int n){
+    if(n<=0)
+    return;
+    System.out.println("Hello,World!");
+    hello(n-1);
+  }
+    public static void main(String[] args) {
+     hello(3);
+  }
+}
+task 1:output:5 4 3 2 1
+import java.util.*;
+
+public class Main {
+  public static void hello(int n){
+    if(n<=0)
+    return;
+    System.out.println(n);
+    hello(n-1);
+  }
+    public static void main(String[] args) {
+     hello(5);
+  }
+}
+
+task2:
+import java.util.*;
+
+public class Main {
+  public static void hello(int n){
+    if(n<=0)
+    return;
+    hello(n-1);
+    System.out.println(n);
+  }
+    public static void main(String[] args) {
+     hello(5);
+  }
+}
+ task 3: find sum of n natural numbers using Linear recursion
+import java.util.*;
+
+public class Main {
+  public static int hello(int n){
+    if(n<=0)
+    return 0;
+    return n+hello(n-1);
+  }
+    public static void main(String[] args) {
+     System.out.print(hello(5));
+  }
+}
+
+1)Leetcode  1922******* count good numbers
+2)Prime number or not?
+ans:
+import java.util.*;
+public class Main {
+  public static boolean isprime(int n,int i){
+    if(n<2)
+    return false;
+    if(n%i==0)
+    return false;
+    if(i*i > n)
+    return true;
+    return isprime(n,i+1);
+  }
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int num=sc.nextInt();
+     System.out.print(isprime(num,2)?"Prime":"Not Prime");
+  }
+}
+
+3)Leetcode 326 ***power of three
+ans:
+class Solution {
+    public boolean isPowerOfThree(int n) {
+        if(n<=0)
+        return false;
+        if(n==1)
+        return true;
+        return (n%3==0 && isPowerOfThree(n/3));
+    }
+}
+
+4)leetcode 342****
+
+5)CodeForces 223339 D print digits using recursion
+ans:
+import java.util.*;
+
+public class Main {
+   public static void printdigit(int n)
+   {
+      if(n<=0)
+      return;
+      printdigit(n/10);
+      System.out.print(n%10+" ");
+   }
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      printdigit(Math.abs(n));
+  }
+}
+6) Leetcode 50
+
+7)Print all the array elements using recursion:::
+import java.util.*;
+
+public class Main {
+   public static void printele(int n,int a[])
+   {
+      if(n<=0)
+      return;
+      printele(n-1,a);
+      System.out.print(a[n-1]+" ");
+   }
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int a[]=new int[n];
+      for(int i=0;i<n;i++)
+      {
+        a[i]=sc.nextInt();
+      }
+      printele(n,a);
+  }
+}
+
+find the frequency of elements
+Input:1 2 3 2 3
+Output:1 1
+       2 2 
+       3 2
+
+Ans:
+import java.util.*;
+
+public class Main {
+  static int count=0;
+   public static void freq(int a[],int n,boolean visit[])
+   {
+      if(n<=0) return;
+      count=0;
+      if(!visit[n-1])
+      System.out.println(a[n-1]+" "+counter(a[n-1],a,n,visit));
+      freq(a,n-1,visit);
+   }
+   public static int counter(int ele,int a[],int n,boolean visit[])
+   {
+      if(n<=0) return count;
+      if(ele==a[n-1]){
+        count++;
+        visit[n-1]=true;
+        
+      }
+      return counter(ele,a,n-1,visit);
+   }
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int a[]=new int[n];
+      for(int i=0;i<n;i++)
+      {
+        a[i]=sc.nextInt();
+      }
+      
+     boolean visit[]=new boolean[n];
+      freq(a,n,visit);
+  }
+}
+
+11)Recursive function to check
+i)String is palindrome?
+ii)Number is palindrome?
+
+12)Codeforces 110A
+
+13)Sort first half in ascending order and second half in descending
+
+14)Arrange the even numbers first and odd number
+Input:9
+21 21 43 56 23 66 0 67 8
+Output:56 66 0 8 21 21 43 23 67
+
+15)arrange even numbers in even index and odd numbers in odd index
+Input:21 21 43 56 23 66 0 67 8
+Output:
+56 21 66 21 0 43 8 23 0 67
+
+Website: Scholarhart for recursion
+Qusetions:
+1)Use of "static" keyword?
+2)Use of "Final" keyword?
+
