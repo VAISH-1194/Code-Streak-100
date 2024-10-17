@@ -1,0 +1,273 @@
+Dayyyyyyy6 
+TOPIC: Collection framework
+Syntax:
+Collection<Integer> list=new ArrayList<Integer>();
+
+example:
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      List<Integer> list=new ArrayList<Integer>();
+      list.add(6);
+      list.add(61);
+      list.add(62);
+      System.out.print(list);
+      list.remove(2);
+      System.out.print(list);
+      System.out.print(list.indexOf(61));
+      int sum=0;
+      for(int i:list)
+      {
+        sum+=i;
+      }
+      System.out.print(sum);
+  }
+}
+
+Stack
+eg:
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Stack<Integer> stack=new Stack<>();
+      stack.push(3);
+      stack.push(30);
+      stack.push(31);
+      stack.push(32);
+      
+      System.out.print(stack);
+      System.out.println(stack.peek());
+      System.out.println(stack.pop());
+      System.out.println(stack);
+  }
+}
+
+
+1)Leetcode 20 valid paranthesis
+ans:
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack=new Stack<>();
+        for(Character c:s.toCharArray())
+        {
+            if(c=='{' || c=='('||c=='[')
+            {
+                stack.push(c);
+            }
+            else if(!stack.empty())
+            {
+                if(c=='}' && stack.peek()=='{')
+                stack.pop();
+                else if(c==']' && stack.peek()=='[')
+                stack.pop();
+                else if(c==')' && stack.peek()=='(')
+                stack.pop();
+                else
+                return false;
+            }
+            else return false;
+        }
+            return stack.empty()?true:false;
+    }
+}
+
+2)Previous greatest element
+input:7
+10 4 2 20 40 12 30
+output:-1 10 4 -1 -1 40 -1 
+import java.util.*;
+
+public class Main {
+    public static void solution(int a[],int n)
+    {
+      for(int i=0;i<n;i++)
+      {
+        if(i==0)
+        {
+          System.out.print("-1"+" ");
+        }
+        else{
+          if(a[i-1]>a[i])
+          {
+            System.out.print(a[i-1]+" ");
+          }
+          else{
+          System.out.print("-1 ");
+          }
+        }
+      }
+      
+    }
+    
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int a[]=new int[n];
+      for(int i=0;i<n;i++)
+      {
+        a[i]=sc.nextInt();
+      }
+      solution(a,n);
+      
+  }
+}
+******or************
+import java.util.*;
+
+public class Main {
+    public static void solution(int a[],int n)
+    {
+      Stack<Integer> stack=new Stack<>();
+      for(int i=0;i<n;i++)
+      {
+        if(i==0)
+        {
+          System.out.print("-1"+" ");
+          stack.push(a[i]);
+        }
+        else{
+          while(!stack.empty() && stack.peek()<a[i])
+          {
+            stack.pop();
+          }
+          if(stack.empty())
+          {
+          System.out.print("-1"+" ");
+          }
+          else{
+            System.out.print(stack.peek()+" ");
+          }
+            stack.push(a[i]);
+        }
+      }
+      
+    }
+    
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int a[]=new int[n];
+      for(int i=0;i<n;i++)
+      {
+        a[i]=sc.nextInt();
+      }
+      solution(a,n);
+      
+  }
+}
+
+3)Next Greatest Element:
+import java.util.*;
+
+public class Main {
+    public static void solution(int a[],int n)
+    {
+      int NGE[]=new int[n];
+      Stack<Integer> stack=new Stack<>();
+      for(int i=2*n-1;i>=0;i--)
+      {
+        while(!stack.isEmpty() && stack.peek()<=a[i%n])
+        stack.pop();
+        if(i<n){
+          if(!stack.isEmpty())
+          NGE[i]=stack.peek();
+          else NGE[i]=-1;
+          
+        }
+        stack.push(a[i%n]);
+      }
+      for(int i=0;i<n;i++)
+      {
+        System.out.print(NGE[i]+" ");
+      }
+      
+    }
+    
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int a[]=new int[n];
+      for(int i=0;i<n;i++)
+      {
+        a[i]=sc.nextInt();
+      }
+      solution(a,n);
+      
+  }
+}
+
+4)LeetCode 4(132 Pattern)
+
+5)Find the minimum number of flips to make binary string alternate
+Input:0001010111
+output:2
+ANS:
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      String s=sc.next();
+      int n=s.length();
+      int fcount=0,scount=0;
+      for(int i=0;i<n;i++)
+      {
+        if(i%2==0 && s.charAt(i) !='0')
+        fcount++;
+        else if(i%2==1 && s.charAt(i) !='1')
+        fcount++;
+      }
+      for(int i=0;i<n;i++)
+      {
+        if(i%2==0 && s.charAt(i) !='1')
+        scount++;
+        if(i%2==1 && s.charAt(i) !='0')
+        scount++;
+      }
+      System.out.println(Math.min(fcount,scount));
+  }
+}
+
+7)Krishna array Manipulation
+input:1
+4
+1 2 3 4 
+output:19
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int m=sc.nextInt();
+      while(m--!=0){
+      int n=sc.nextInt();
+      int a[]=new int[n+1];
+      for(int i=0;i<n;i++)
+      {
+        a[i]=sc.nextInt();
+      }
+      int total=0;
+      int sum=a[0];
+      for(int i=1;i<n;i++)
+      {
+        sum+=a[i];
+        total+=sum;
+        
+      }
+      System.out.print(total);
+      }
+  }
+}
+
+8)1207 Leetcode unique number of occurrences
+
+9)1832 Check if the sentence is pangram
+explain:the sentence should have all 26 alphabets atleast once+
+input:
+10)1046 Last Stone Weight
+
+Questions:
+1)diff btw arrayList and vector?
+2)diff btw linked list and arraylist
